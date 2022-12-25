@@ -15,7 +15,7 @@ class SendEmails extends Command
      *
      * @var string
      */
-    protected $signature = 'mail:send {user} {--queue}';
+    protected $signature = 'mail:send {user}';
 
     /**
      * The console command description.
@@ -46,7 +46,6 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        dd($this->option('queue'));
         $user = User::find($this->argument('user'));
         $maildata = [
             'name' => $user->name
