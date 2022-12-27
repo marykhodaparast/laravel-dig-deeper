@@ -46,6 +46,16 @@ class SendEmails extends Command
      */
     public function handle()
     {
+
+        // $users = $this->withProgressBar(User::all(), function ($user) {
+        //     $maildata = [
+        //         'name' => $user->name
+        //     ];
+        //     Mail::to($user->email)->send(new TestEmail($maildata));
+        // });
+        // $this->newLine();
+
+
         $user = User::find($this->argument('user'));
         $maildata = [
             'name' => $user->name
