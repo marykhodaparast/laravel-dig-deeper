@@ -19,10 +19,13 @@ Route::get('/', function () {
 
 use Illuminate\Support\Facades\Artisan;
 
-// Route::get('/user/{user}/mail', function ($user) {
-//     $exitCode = Artisan::call('mail:send', [
-//         'user' => $user
-//     ]);
-
-
-// });
+Route::get('/user/{user}/mail', function ($user) {
+    $exitCode = Artisan::call('mail:send', [
+        'user' => $user
+    ]);
+});
+Route::get('/migrate', function () {
+    $exitCode = Artisan::call('migrate:refresh', [
+        '--force' => true,
+    ]);
+});

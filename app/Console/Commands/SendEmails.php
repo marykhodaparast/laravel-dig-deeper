@@ -7,6 +7,7 @@ use App\Mail\TestEmail;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
+//use Symfony\Component\Console\Command\SignalableCommandInterface;
 
 class SendEmails extends Command
 {
@@ -34,16 +35,16 @@ class SendEmails extends Command
         parent::__construct();
     }
 
-    // public function helper($e)
-    // {
-    //     return $e->getMessage();
-    // }
+    // // public function helper($e)
+    // // {
+    // //     return $e->getMessage();
+    // // }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
+    // /**
+    //  * Execute the console command.
+    //  *
+    //  * @return mixed
+    //  */
     public function handle()
     {
 
@@ -54,6 +55,8 @@ class SendEmails extends Command
         //     Mail::to($user->email)->send(new TestEmail($maildata));
         // });
         // $this->newLine();
+
+        //$this->callSilently('migrate');
 
 
         $user = User::find($this->argument('user'));
@@ -93,4 +96,6 @@ class SendEmails extends Command
         //     $this->error('Something went wrong!' . $error);
         // }
     }
+
+
 }
